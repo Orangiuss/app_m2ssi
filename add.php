@@ -4,15 +4,15 @@
 </head>
 
 <body>
-	<h2>Add Data</h2>
+	<h2>Ajout etudiant</h2>
 	<p>
-		<a href="index.php">Home</a>
+		<a href="index.php">Accueil</a>
 	</p>
 
 	<form action="addAction.php" method="post" name="add">
 		<table width="25%" border="0">
 			<tr> 
-				<td>Name</td>
+				<td>Nom</td>
 				<td><input type="text" name="name"></td>
 			</tr>
 			<tr> 
