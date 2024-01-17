@@ -94,7 +94,7 @@ pipeline {
             }
         }
 
-        stage('Wait for deployment') {
+        stage('Update deployments of app and mysql') {
             steps {
                 script {
                     sh 'sudo kubectl rollout status deployment/mysql'
@@ -103,32 +103,32 @@ pipeline {
             }
         }
 
-        // Ici on peut mettre un sleep pour attendre que les pods soient prêts
-        stage('Wait for pods') {
-            steps {
-                script {
-                    sh 'sudo sleep 30'
-                }
-            }
-        }
+        // // Ici on peut mettre un sleep pour attendre que les pods soient prêts
+        // stage('Wait for pods') {
+        //     steps {
+        //         script {
+        //             sh 'sudo sleep 30'
+        //         }
+        //     }
+        // }
 
-        stage('Rollout app') {
-            steps {
-                script {
-                    sh 'sudo kubectl set image deployment/app-deployment nginx=orangius/app_m2ssi:latest'
-                    sh 'sudo kubectl set image deployment/app-deployment nginx=orangius/app_m2ssi'
-                }
-            }
-        }
+        // stage('Rollout app') {
+        //     steps {
+        //         script {
+        //             sh 'sudo kubectl set image deployment/app-deployment nginx=orangius/app_m2ssi:latest'
+        //             sh 'sudo kubectl set image deployment/app-deployment nginx=orangius/app_m2ssi'
+        //         }
+        //     }
+        // }
 
-        stage('Rollout mysql') {
-            steps {
-                script {
-                    sh 'sudo kubectl set image deployment/mysql mysql=orangius/mysql_m2ssi:latest'
-                    sh 'sudo kubectl set image deployment/mysql mysql=orangius/mysql_m2ssi'
-                }
-            }
-        }
+        // stage('Rollout mysql') {
+        //     steps {
+        //         script {
+        //             sh 'sudo kubectl set image deployment/mysql mysql=orangius/mysql_m2ssi:latest'
+        //             sh 'sudo kubectl set image deployment/mysql mysql=orangius/mysql_m2ssi'
+        //         }
+        //     }
+        // }
 
 
         // stage('Apply Kubernetes files') {
