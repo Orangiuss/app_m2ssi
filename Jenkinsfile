@@ -54,6 +54,20 @@ pipeline {
             }
         }
         
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    sh 'sudo kubectl get all'
+                }
+            }
+        }
+
+        // stage('Apply Kubernetes files') {
+        //     withKubeConfig([credentialsId: 'user1', serverUrl: 'https://0d2f2d00-4615-4c30-8c61-c94ee188fe34.k8s.ondigitalocean.com']) {
+        //     sh 'kubectl cluster-info'
+        //     }
+        // }
+        
         stage('Deploy to Kubernetes with playbook') {
             steps {
                 script {
