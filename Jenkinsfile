@@ -65,7 +65,7 @@ pipeline {
         stage('Deploy to Kubernetes Secrets') {
             steps {
                 script {
-                    sh 'sudo kubectl apply -f /deploy/secrets.yaml'
+                    sh 'sudo kubectl apply -f ./deploy/secrets.yaml'
                 }
             }
         }
@@ -73,7 +73,7 @@ pipeline {
         stage('Deploy to Kubernetes Volumes') {
             steps {
                 script {
-                    sh 'sudo kubectl apply -f /deploy/volumes.yaml'
+                    sh 'sudo kubectl apply -f ./deploy/volumes.yaml'
                 }
             }
         }
@@ -81,7 +81,7 @@ pipeline {
         stage('Deploy to Kubernetes MySQL') {
             steps {
                 script {
-                    sh 'sudo kubectl apply -f /deploy/mysql_deploy.yaml'
+                    sh 'sudo kubectl apply -f ./deploy/mysql_deploy.yaml'
                 }
             }
         }
