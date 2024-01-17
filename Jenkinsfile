@@ -94,6 +94,25 @@ pipeline {
             }
         }
 
+        stage('Rollout app') {
+            steps {
+                script {
+                    sh 'sudo kubectl set image deployment/app-deployment nginx=orangius/app_m2ssi:latest'
+                    sh 'sudo kubectl set image deployment/app-deployment nginx=orangius/app_m2ssi'
+                }
+            }
+        }
+
+        stage('Rollout mysql') {
+            steps {
+                script {
+                    sh 'sudo kubectl set image deployment/mysql-deployment mysql=orangius/mysql_m2ssi:latest'
+                    sh 'sudo kubectl set image deployment/mysql-deployment mysql=orangius/mysql_m2ssi'
+                }
+            }
+        }
+
+
         // stage('Apply Kubernetes files') {
         //     withKubeConfig([credentialsId: 'user1', serverUrl: 'https://0d2f2d00-4615-4c30-8c61-c94ee188fe34.k8s.ondigitalocean.com']) {
         //     sh 'kubectl cluster-info'

@@ -12,13 +12,13 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 </head>
 
 <body>
-	<h2>Application de gestion des notes de M2SSI ! </h2>
+	<h2>Application de gestion des notes de M2SSI</h2>
 	<p>
-		<a href="add.php">Add New Data</a>
+		<a href="add.php">Ajout d'un étudiant</a>
 	</p>
 	<table width='80%' border=0>
 		<tr bgcolor='#DDDDDD'>
-			<td><strong>Name</strong></td>
+			<td><strong>Nom</strong></td>
 			<td><strong>Age</strong></td>
 			<td><strong>Email</strong></td>
 			<td><strong>Action</strong></td>
@@ -30,8 +30,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 			echo "<td>".$res['name']."</td>";
 			echo "<td>".$res['age']."</td>";
 			echo "<td>".$res['email']."</td>";	
-			echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | 
-			<a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+			echo "<td><a href=\"edit.php?id=$res[id]\">Modifier</a> | 
+			<a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Supprimer</a></td>";
 		}
 		?>
 	</table>
