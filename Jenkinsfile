@@ -62,6 +62,30 @@ pipeline {
             }
         }
 
+        stage('Deploy to Kubernetes Secrets') {
+            steps {
+                script {
+                    sh 'sudo kubectl apply -f /deploy/secrets.yaml'
+                }
+            }
+        }
+
+        stage('Deploy to Kubernetes Volumes') {
+            steps {
+                script {
+                    sh 'sudo kubectl apply -f /deploy/volumes.yaml'
+                }
+            }
+        }
+
+        stage('Deploy to Kubernetes MySQL') {
+            steps {
+                script {
+                    sh 'sudo kubectl apply -f /deploy/mysql_deploy.yaml'
+                }
+            }
+        }
+
         // stage('Apply Kubernetes files') {
         //     withKubeConfig([credentialsId: 'user1', serverUrl: 'https://0d2f2d00-4615-4c30-8c61-c94ee188fe34.k8s.ondigitalocean.com']) {
         //     sh 'kubectl cluster-info'
