@@ -73,7 +73,7 @@ pipeline {
         stage('Deploy to Kubernetes Volumes') {
             steps {
                 script {
-                    sh 'sudo kubectl apply -f ./deploy/volumes.yaml'
+                    sh 'sudo kubectl apply -f ./deploy/volumes_mysql.yaml'
                 }
             }
         }
@@ -82,6 +82,14 @@ pipeline {
             steps {
                 script {
                     sh 'sudo kubectl apply -f ./deploy/mysql_deploy.yaml'
+                }
+            }
+        }
+
+        stage('Deploy to Kubernetes App') {
+            steps {
+                script {
+                    sh 'sudo kubectl apply -f ./deploy/app_deploy.yaml'
                 }
             }
         }
