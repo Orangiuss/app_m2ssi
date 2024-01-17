@@ -33,5 +33,6 @@ spec:
       containers:
       - name: nginx
         image: orangius/app_m2ssi:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
