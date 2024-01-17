@@ -103,6 +103,7 @@ pipeline {
             }
         }
 
+        // Ici on peut mettre un sleep pour attendre que les pods soient prêts
         sleep(30)
 
         stage('Rollout app') {
