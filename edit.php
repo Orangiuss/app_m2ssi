@@ -17,11 +17,11 @@ $email = $resultData['email'];
 ?>
 <html>
 <head>	
-	<title>Edit Data</title>
+	<title>Modifier etudiant</title>
 </head>
 
 <body>
-    <h2>Edit Data</h2>
+    <h2>Modification d'un etudiant</h2>
     <p>
 	    <a href="index.php">Home</a>
     </p>
@@ -29,7 +29,7 @@ $email = $resultData['email'];
 	<form name="edit" method="post" action="editAction.php">
 		<table border="0">
 			<tr> 
-				<td>Name</td>
+				<td>Nom</td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>"></td>
 			</tr>
 			<tr> 
