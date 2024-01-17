@@ -94,6 +94,17 @@ pipeline {
             }
         }
 
+        stage('Wait for deployment') {
+            steps {
+                script {
+                    sh 'sudo kubectl rollout status deployment/mysql'
+                    sh 'sudo kubectl rollout status deployment/app-deployment'
+                }
+            }
+        }
+
+        sleep(30)
+
         stage('Rollout app') {
             steps {
                 script {
@@ -106,8 +117,8 @@ pipeline {
         stage('Rollout mysql') {
             steps {
                 script {
-                    sh 'sudo kubectl set image deployment/mysql-deployment mysql=orangius/mysql_m2ssi:latest'
-                    sh 'sudo kubectl set image deployment/mysql-deployment mysql=orangius/mysql_m2ssi'
+                    sh 'sudo kubectl set image deployment/mysql mysql=orangius/mysql_m2ssi:latest'
+                    sh 'sudo kubectl set image deployment/mysql mysql=orangius/mysql_m2ssi'
                 }
             }
         }
