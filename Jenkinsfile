@@ -7,8 +7,6 @@ pipeline {
     registry2='orangius/app_m2ssi'
     }
 
-    // Test
-
     agent any
 
     stages {
