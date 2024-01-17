@@ -104,7 +104,13 @@ pipeline {
         }
 
         // Ici on peut mettre un sleep pour attendre que les pods soient prêts
-        sleep(30)
+        stage('Wait for pods') {
+            steps {
+                script {
+                    sh 'sudo sleep 30'
+                }
+            }
+        }
 
         stage('Rollout app') {
             steps {
