@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Add Data</title>
+	<title>Ajout etudiant</title>
 </head>
 
 <body>
