@@ -23,7 +23,7 @@ $email = $resultData['email'];
 <body>
     <h2>Modification d'un etudiant</h2>
     <p>
-	    <a href="index.php">Home</a>
+	    <a href="index.php">Accueil</a>
     </p>
 	
 	<form name="edit" method="post" action="editAction.php">
