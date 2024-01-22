@@ -12,7 +12,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 </head>
 
 <body>
-	<h2>Application de gestion de M2SSI</h2>
+	<h2>Application de gestion de M2SSI !!!</h2>
 	<p>
 		<a href="add.php">Ajout d'un étudiant</a>
 	</p>
